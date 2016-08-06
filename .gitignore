@@ -1,0 +1,28 @@
+## Eclipse
+
+.classpath
+.project
+.settings
+
+## IntelliJ IDEA
+
+.idea_modules/
+/out/
+
+## IntelliJ IDEA project settings (these folders are important to exclude)
+
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/dictionaries
+.idea/shelf
+.idea/dataSources.ids
+.idea/dataSources.xml
+.idea/sqlDataSources.xml
+.idea/dynamic.xml
+.idea/uiDesigner.xml
+.idea/gradle.xml
+.idea/libraries
+
+## IntelliJ IDEA project settings (these folders are optional to exclude)
+
+.idea/misc.xml
