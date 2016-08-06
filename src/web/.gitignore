@@ -1,0 +1,9 @@
+/web/bundles/
+/app/config/parameters.yml
+/var/
+/build/
+/vendor/
+/bin/*
+!bin/console
+!bin/symfony_requirements
+/composer.phar
