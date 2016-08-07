@@ -1,13 +1,39 @@
-<!DOCTYPE html>
-<html>
+{% spaceless %}
+    <!DOCTYPE html>
+    <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        <title>
+            {%- if title is defined -%}
+                {{ title }} ·
+            {%- endif %}
+            {%- block title %} TwitchLurk{% endblock -%}
+        </title>
+        <link rel="icon" type="image/png" href="{{ asset('logo64.png') }}" />
+
+        {% stylesheets 'css/*' filter='cssrewrite' filter='yui_css' combine=true %}
+        <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+        {% endstylesheets %}
+
+        <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,700&subset=latin,latin-ext,greek,greek-ext,cyrillic,cyrillic-ext'
+              rel='stylesheet' type='text/css'>
     </head>
     <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
+
+    <table id='header'>
+        <tr>
+            <td><img id='logo' src='/logo64.png' /></td>
+            <td><span id='logotext'><span id='logotext1'>Twitch</span><span id='logotext2'>Lurk</span></span></td>
+        </tr>
+    </table>
+    <br>
+
+    {% block body %}{% endblock %}
+
+    {% javascripts 'js/jquery.js' 'js/*' filter="yui_js" combine=true %}
+    <script src='{{ asset_url }}'></script>
+    {% endjavascripts %}
+
     </body>
-</html>
+    </html>
+{% endspaceless %}

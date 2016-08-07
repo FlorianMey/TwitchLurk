@@ -37,6 +37,20 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
+assetic:
+    debug:          "%kernel.debug%"
+    use_controller: false
+    bundles:        [ ]
+    read_from: %kernel.root_dir%/../src/assets
+    write_to: %kernel.root_dir%/../web
+    #java: /usr/bin/java
+    filters:
+        cssrewrite: ~
+        yui_css:
+            jar: "%kernel.root_dir%/Resources/java/yui.jar"
+        yui_js:
+            jar: "%kernel.root_dir%/Resources/java/yui.jar"
+
 # Doctrine Configuration
 doctrine:
     dbal:
