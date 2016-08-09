@@ -4,7 +4,7 @@ html {
 }
 
 body {
-    background-color: #0B1009;
+    background-color: #141414;
     color: white;
     width: 1000px;
     display: table-cell;
@@ -19,14 +19,22 @@ table#header {
     border-spacing: 10px;
 }
 
+table#header td:nth-child(2) {
+    width: 100%;
+}
+
 #logotext {
-font-size: 28px;
+    font-size: 28px;
+    border-bottom: 1px solid #a177ce;
+    height: 35px;
+    position: relative;
+    top: -13px;
 }
 
 #logotext1 {
-    color: #55C656;
+    color: #A177CE;
 }
 
 #logotext2 {
-    color: #A177CE;
+    color: #55C656;
 }
