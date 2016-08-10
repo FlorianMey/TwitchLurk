@@ -84,12 +84,12 @@ table.form-table tr td:nth-child(2) {
     border: 1px solid #A177CE;
     margin-left: 4px;
     padding: 2px 10px 2px 10px;
-    color: #19dc44;
+    color: #A177CE;
     border-radius: 4px;
 }
 
 .streams-from-selection:hover, button:hover, input[type="submit"]:hover {
-    color: #d61818;
+    color: #55C656;
     border-color: #55C656;
 }
 
