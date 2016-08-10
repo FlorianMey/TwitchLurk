@@ -4,17 +4,29 @@ namespace TwitchLurkBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Symfony\Component\VarDumper\VarDumper;
 use TwitchLurkBundle\Util\TwitchUtil;
 
 class TwitchLurkController extends Controller
 {
     /**
-     * @Route("/")
+     * @Route("/", defaults={"selectedSource" = "search"})
+     * @Route("/from/{selectedSource}");
      */
-    public function frontPage()
+    public function frontPage($selectedSource)
     {
-        return $this->render('TwitchLurkBundle:TwitchLurk:front.html.twig', [
-            'title' => '^.^'
+        $streamSources = [
+            'search'    => ['name' => 'Search', 'link' => '/'],
+            'following' => ['name' => 'Following List', 'link' => '/from/following'],
+            'anything'  => ['name' => 'Anything', 'link' => '/from/anything']
+        ];
+
+        $streamSources[$selectedSource]['selected'] = true;
+
+        return $this->render("TwitchLurkBundle:TwitchLurk:front.html.twig", [
+            'title'         => '^.^',
+            'streamSources' => $streamSources,
+            'selectedSource' => $selectedSource
         ]);
     }
 
