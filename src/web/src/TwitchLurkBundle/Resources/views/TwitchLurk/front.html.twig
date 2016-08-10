@@ -1,9 +1,16 @@
-{% extends 'base.html.twig' %}
+{% extends 'content.html.twig' %}
+{% block content %}
 
-{% block body %}
+    Streams from
+    {% for id, properties in streamSources %}
+        <a href='{{ relative_path(properties.link) }}'
+           class='streams-from-selection {% if properties.selected is defined %}selected{% endif %}'>{{ properties.name }}</a>
+    {% endfor %}
 
+    <form style='margin-top: 30px'>
+        {% include 'TwitchLurkBundle:StreamSourceConfig:' ~ selectedSource ~ '.html.twig' %}
 
-
-TODO
+    <button style='margin-top: 20px'>Find streams for me!</button>
+    </form>
 
 {% endblock %}
