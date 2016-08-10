@@ -32,7 +32,7 @@
 
     {% block body %}{% endblock %}
 
-    {% javascripts 'js/jquery.js' 'js/*' filter="yui_js" combine=true %}
+    {% javascripts 'js/jquery.js' 'js/only-numbers.js' 'js/*' filter="yui_js" combine=true %}
     <script src='{{ asset_url }}'></script>
     {% endjavascripts %}
 
