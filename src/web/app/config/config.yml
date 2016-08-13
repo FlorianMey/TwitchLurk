@@ -44,12 +44,15 @@ assetic:
     read_from: %kernel.root_dir%/../src/assets
     write_to: %kernel.root_dir%/../web
     #java: /usr/bin/java
-    filters:
-        cssrewrite: ~
-        yui_css:
-            jar: "%kernel.root_dir%/Resources/java/yui.jar"
-        yui_js:
-            jar: "%kernel.root_dir%/Resources/java/yui.jar"
+    # TODO
+    # There were some heavy problems with those filters preventing Assetic
+    # from accurately utilize the "use_controller" feature
+   # filters:
+    #    cssrewrite: ~
+     #   yui_css:
+      #      jar: "%kernel.root_dir%/Resources/java/yui.jar"
+       # yui_js:
+        #    jar: "%kernel.root_dir%/Resources/java/yui.jar"
 
 # Doctrine Configuration
 doctrine:

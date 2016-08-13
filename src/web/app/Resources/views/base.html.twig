@@ -11,7 +11,7 @@
         </title>
         <link rel="icon" type="image/png" href="{{ asset('logo64.png') }}" />
 
-        {% stylesheets 'css/*' filter='cssrewrite' filter='yui_css' combine=true %}
+        {% stylesheets %}
         <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
         {% endstylesheets %}
 
@@ -32,7 +32,7 @@
 
     {% block body %}{% endblock %}
 
-    {% javascripts 'js/jquery.js' 'js/*' filter="yui_js" combine=true %}
+    {% javascripts 'js/jquery.js' 'js/*' %}
     <script src='{{ asset_url }}'></script>
     {% endjavascripts %}
 
