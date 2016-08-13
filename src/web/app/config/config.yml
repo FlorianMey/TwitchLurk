@@ -42,7 +42,6 @@ assetic:
     use_controller: false
     bundles:        [ ]
     read_from: %kernel.root_dir%/../src/assets
-    write_to: %kernel.root_dir%/../web
     #java: /usr/bin/java
     # TODO
     # There were some heavy problems with those filters preventing Assetic

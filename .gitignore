@@ -26,3 +26,7 @@
 ## IntelliJ IDEA project settings (these folders are optional to exclude)
 
 .idea/misc.xml
+
+## Symfony
+
+src/web/web/var # Folder for temporary resources generated with Assetic and Yui
