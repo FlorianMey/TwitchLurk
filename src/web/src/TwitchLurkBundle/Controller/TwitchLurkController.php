@@ -25,6 +25,7 @@ class TwitchLurkController extends Controller
 
         return $this->render("TwitchLurkBundle:TwitchLurk:front.html.twig", [
             'title'         => '^.^',
+            'javascripts' => ['numbers-only-input'],
             'streamSources' => $streamSources,
             'selectedSource' => $selectedSource
         ]);

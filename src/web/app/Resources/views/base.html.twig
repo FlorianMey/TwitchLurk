@@ -36,6 +36,21 @@
     <script src='{{ asset_url }}'></script>
     {% endjavascripts %}
 
+    {# TODO doesn't work for now, just loading any optional scripts always until I find a way to use
+       variables in javascripts tags
+     {% if javascripts is defined %}
+        {% for javascript in javascripts %}
+            {% set javascriptPath = 'js-optional/' ~ javascript ~ '.js' %}
+            {% javascripts 'js-optional/numbers-only-input.js' ~ javascript %}
+                <script src='{{ asset_url }}'></script>
+            {% endjavascripts %}
+        {% endfor %}
+    {% endif %}#}
+
+    {% javascripts 'js-optional/*' %}
+    <script src='{{ asset_url }}'></script>
+    {% endjavascripts %}
+
     </body>
     </html>
 {% endspaceless %}
