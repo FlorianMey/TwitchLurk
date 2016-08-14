@@ -2,40 +2,46 @@ $(function () {
 
     console.log("amk");
 
-
     var twitchLanguages = [
-        {label: 'Dansk', value: 'da'},
-        {label: 'Deutsch', value: 'de'},
-        {label: 'Englisch', value: 'en'},
-        {label: 'Español', value: 'es'},
-        {label: 'Español - México', value: 'es-mx'},
-        {label: 'Français', value: 'fr'},
-        {label: 'Italiano', value: 'it'},
-        {label: 'Magyar', value: 'hu'},
-        {label: 'Nederlands', value: 'nl'},
-        {label: 'Norsk', value: 'no'},
-        {label: 'Polski', value: 'pl'},
-        {label: 'Português', value: 'pt'},
-        {label: 'Português Brasileiro', value: 'pt-br'},
-        {label: 'Slovenčina', value: 'sk'},
-        {label: 'Suomi', value: 'fi'},
-        {label: 'Svenska', value: 'sv'},
-        {label: 'Tiếng Việt', value: 'vi'},
-        {label: 'Türkçe', value: 'tr'},
-        {label: 'Čeština', value: 'cs'},
-        {label: 'Ελληνικά', value: 'el'},
-        {label: 'Български', value: 'bg'},
-        {label: 'Русский', value: 'ru'},
-        {label: 'العربية', value: 'ar'},
-        {label: 'ภาษาไทย', value: 'th'},
-        {label: '中文 简体', value: 'zh-cn'},
-        {label: '中文 繁體', value: 'zh-tw'},
-        {label: '日本語', value: 'ja'},
-        {label: '한국어', value: 'ko'}
+        {name: 'Dansk', code: 'da'},
+        {name: 'Deutsch', code: 'de'},
+        {name: 'Englisch', code: 'en'},
+        {name: 'Español', code: 'es'},
+        {name: 'Español - México', code: 'es-mx'},
+        {name: 'Français', code: 'fr'},
+        {name: 'Italiano', code: 'it'},
+        {name: 'Magyar', code: 'hu'},
+        {name: 'Nederlands', code: 'nl'},
+        {name: 'Norsk', code: 'no'},
+        {name: 'Polski', code: 'pl'},
+        {name: 'Português', code: 'pt'},
+        {name: 'Português Brasileiro', code: 'pt-br'},
+        {name: 'Slovenčina', code: 'sk'},
+        {name: 'Suomi', code: 'fi'},
+        {name: 'Svenska', code: 'sv'},
+        {name: 'Tiếng Việt', code: 'vi'},
+        {name: 'Türkçe', code: 'tr'},
+        {name: 'Čeština', code: 'cs'},
+        {name: 'Ελληνικά', code: 'el'},
+        {name: 'Български', code: 'bg'},
+        {name: 'Русский', code: 'ru'},
+        {name: 'العربية', code: 'ar'},
+        {name: 'ภาษาไทย', code: 'th'},
+        {name: '中文 简体', code: 'zh-cn'},
+        {name: '中文 繁體', code: 'zh-tw'},
+        {name: '日本語', code: 'ja'},
+        {name: '한국어', code: 'ko'}
     ];
 
     $(".twitch-language-input").autocomplete({
-        source: twitchLanguages
+        source: function (request, response) {
+            renamedTwitchLanguages = $.map(twitchLanguages, function (twitchLanguage) {
+                return {value: twitchLanguage.code, label: twitchLanguage.name}
+            });
+            filteredTwitchLanguages = $.grep(renamedTwitchLanguages, function (twitchLanguage, index) {
+                return twitchLanguage.value.includes(request.term) || twitchLanguage.label.includes(request.term)
+            });
+            response(filteredTwitchLanguages);
+        }
     });
-
 });
